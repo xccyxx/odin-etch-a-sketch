@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+}
+
+.content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 960px;
+    width: 960px;
+    border: solid;
+    justify-content: space-between;
+    gap: 0;
+}
+
+.row, .col {
+    display: flex;
+    border: solid;
+    flex: 1;
+}
