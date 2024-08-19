@@ -32,6 +32,7 @@
     flex: 1;
 }
 
-.grid {
+.cell {
     flex: 1;
+    /* border: 1px solid; */
 }
