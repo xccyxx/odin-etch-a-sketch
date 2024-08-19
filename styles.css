@@ -5,8 +5,14 @@
 .content {
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    gap: 120px;
+}
+
+.button {
+    margin-top: 20px; 
 }
 
 .container {
@@ -15,8 +21,9 @@
     height: 960px;
     width: 960px;
     border: solid 1px;
+    border-radius: 20px;
+    overflow: hidden;
     justify-content: space-between;
-    gap: 0;
     flex-shrink: 0;
 }
 
