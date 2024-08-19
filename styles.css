@@ -14,13 +14,17 @@
     flex-direction: column;
     height: 960px;
     width: 960px;
-    border: solid;
+    border: solid 1px;
     justify-content: space-between;
     gap: 0;
+    flex-shrink: 0;
 }
 
-.row, .col {
+.row {
     display: flex;
-    border: solid;
+    flex: 1;
+}
+
+.grid {
     flex: 1;
 }
