@@ -1,3 +1,5 @@
+let darkeningCount = 0;
+
 const createCell = (number) => {
     let container = document.querySelector(".container");
     container.innerHTML = '';
@@ -16,16 +18,26 @@ const createCell = (number) => {
     }
 }
 
+const darkening = () => {
+    // progressive darkening opacity
+    if (darkeningCount < 10) {
+        darkeningCount += 1;
+    }
+    return darkeningCount / 10;
+}
+
 const pixelateCellsOnHover = () => {
     let container = document.querySelector(".container");
     // event delegation
     container.addEventListener("mouseover", event => {
-        if (event.target.className === "cell") {
-            event.target.style.backgroundColor = "#404040";
+        if (event.target.className === "cell" && !event.target.style.backgroundColor) {
+            // progressive darkening opacity
+            event.target.style.opacity = darkening();
+            // random cell color
+            event.target.style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
         }
     })
 }
-
 
 const promptForSideSquaresNumber = () => {
     let input;
@@ -41,7 +53,6 @@ const promptForSideSquaresNumber = () => {
         return null;
     }
     return sideSquaresNumber;
-
 }
 
 const setupGridSizeButton = () => {
@@ -50,6 +61,7 @@ const setupGridSizeButton = () => {
         let gridSize = promptForSideSquaresNumber();
         // avoid setting grid size using a invalid number
         if (gridSize !== null) {
+            darkeningCount = 0;
             createCell(gridSize);
         }
     })
